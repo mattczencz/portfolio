@@ -2,7 +2,7 @@ import { defineQuery } from 'next-sanity';
 
 export const PROJECTS_HOME_QUERY = defineQuery(`*[
   _type == "project"
-]{
+]|order(orderRank){
   _id,
   name,
   slug,
