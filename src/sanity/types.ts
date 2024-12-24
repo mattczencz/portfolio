@@ -221,21 +221,17 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../portfolio-with-cms/src/sanity/queries/projects.ts
 // Variable: PROJECTS_HOME_QUERY
-// Query: *[  _type == "project"]{  _id,  name,  slug,  image,  inProgress,  platform,  shortDesc,  repoLink,  liveLink,  technology[]->{    name,    url,    icon  }}
+// Query: *[  _type == "project"]|order(orderRank){  _id,  name,  slug,  "image": image.asset-> {     url,    label,    title,    altText,    description  },  inProgress,  platform,  shortDesc,  repoLink,  liveLink,  technology[]->{    name,    url,    "icon": icon.asset-> {       url,      label,      title,      altText,      description    }  }}
 export type PROJECTS_HOME_QUERYResult = Array<{
   _id: string;
   name: string | null;
   slug: Slug | null;
   image: {
-    asset?: {
-      _ref: string;
-      _type: 'reference';
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: 'image';
+    url: string | null;
+    label: string | null;
+    title: string | null;
+    altText: string | null;
+    description: string | null;
   } | null;
   inProgress: boolean | null;
   platform: 'app' | 'both' | 'website' | null;
@@ -246,15 +242,11 @@ export type PROJECTS_HOME_QUERYResult = Array<{
     name: string | null;
     url: string | null;
     icon: {
-      asset?: {
-        _ref: string;
-        _type: 'reference';
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
-      };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: 'image';
+      url: string | null;
+      label: string | null;
+      title: string | null;
+      altText: string | null;
+      description: string | null;
     } | null;
   }> | null;
 }>;
@@ -324,7 +316,7 @@ export type PROJECT_SINGLE_QUERYResult = {
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[\n  _type == "project"\n]{\n  _id,\n  name,\n  slug,\n  image,\n  inProgress,\n  platform,\n  shortDesc,\n  repoLink,\n  liveLink,\n  technology[]->{\n    name,\n    url,\n    icon\n  }\n}': PROJECTS_HOME_QUERYResult;
+    '*[\n  _type == "project"\n]|order(orderRank){\n  _id,\n  name,\n  slug,\n  "image": image.asset-> { \n    url,\n    label,\n    title,\n    altText,\n    description\n  },\n  inProgress,\n  platform,\n  shortDesc,\n  repoLink,\n  liveLink,\n  technology[]->{\n    name,\n    url,\n    "icon": icon.asset-> { \n      url,\n      label,\n      title,\n      altText,\n      description\n    }\n  }\n}': PROJECTS_HOME_QUERYResult;
     '*[\n  _type == "project" &&\n  slug.current == $slug  \n][0]{\n  ...,\n  technology[]->{\n    name,\n    url,\n    icon\n  },\n}': PROJECT_SINGLE_QUERYResult;
   }
 }

@@ -6,7 +6,13 @@ export const PROJECTS_HOME_QUERY = defineQuery(`*[
   _id,
   name,
   slug,
-  image,
+  "image": image.asset-> { 
+    url,
+    label,
+    title,
+    altText,
+    description
+  },
   inProgress,
   platform,
   shortDesc,
@@ -15,7 +21,13 @@ export const PROJECTS_HOME_QUERY = defineQuery(`*[
   technology[]->{
     name,
     url,
-    icon
+    "icon": icon.asset-> { 
+      url,
+      label,
+      title,
+      altText,
+      description
+    }
   }
 }`);
 

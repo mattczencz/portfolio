@@ -2,20 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #332a41;
-    --foreground: #ededed;
-  }
+h1,
+h2,
+h3,
+h3 span {
+  @apply font-heading text-theme-heading-text font-extrabold;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+p,
+span,
+div,
+small {
+  @apply font-body text-theme-body-text font-normal;
+}
+
+.container {
+  @apply flex m-auto max-w-screen-8xl;
+}
+
+.content-section {
+  @apply flex-col items-center justify-center py-12 lg:py-32;
+}
+
+.nav-logo {
+  @apply hover:text-theme-heading-text relative
+  transition duration-300 after:w-0 after:border-b-2 after:h-1 after:absolute after:left-0 after:-bottom-1 hover:after:w-3/4
+  after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-300 after:border-b-theme-heading-text;
+}
+
+.nav-link {
+  @apply font-semibold text-theme-heading-text hover:text-theme-primary relative
+  transition duration-300 after:w-0 after:border-b-2 after:h-1 after:absolute after:left-0 after:-bottom-1 hover:after:w-3/4
+  after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-300 after:border-b-theme-primary;
+}
+
+.nav-link-active {
+  @apply text-theme-primary after:border-b-2 after:h-1 after:absolute after:left-0 after:-bottom-1 after:w-3/4
+  after:opacity-100 after:transition-all after:duration-300 after:border-b-theme-primary;
+}
+
+.project-link {
+  @apply flex items-center gap-2 text-theme-heading-text font-bold text-lg relative
+  transition duration-300 after:w-0 after:border-b-2 after:h-1 after:absolute after:left-0 after:-bottom-1 hover:after:w-3/4
+  after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-300 after:border-b-theme-primary;
+}
+
+.scrolling-image:hover {
+  transform: translateY(calc(-100% + 400px));
 }
