@@ -3,6 +3,7 @@ import './globals.css';
 import { SanityLive } from '@/sanity/live';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: 'Matt Czencz - Portfolio',
@@ -20,7 +21,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-
+        <SpeedInsights />
         <SanityLive />
       </body>
     </html>
