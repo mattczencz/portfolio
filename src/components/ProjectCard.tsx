@@ -33,7 +33,7 @@ const ProjectCard = ({
             width={600}
             height={400}
             alt={image.altText ?? ''}
-            priority
+            loading="lazy"
             className="object-cover object-top scrolling-image transition duration-[10000ms] ease-in-out relative"
           />
         )}

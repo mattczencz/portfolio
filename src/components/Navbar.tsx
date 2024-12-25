@@ -22,21 +22,20 @@ const Navbar = () => {
 
         {/* Tablet & Desktop Nav */}
         <ul className="flex items-center gap-4">
-          <div className="hidden md:flex items-center gap-4">
+          <li className="hidden md:flex items-center gap-4">
             {navLinks.map(({ label, route }: NavLink) => (
-              <li key={label}>
-                <Link
-                  href={route}
-                  className={`nav-link ${
-                    activePath === route && 'nav-link-active'
-                  }`}
-                  onClick={() => setActivePath(route)}
-                >
-                  {label}
-                </Link>
-              </li>
+              <Link
+                key={label}
+                href={route}
+                className={`nav-link ${
+                  activePath === route && 'nav-link-active'
+                }`}
+                onClick={() => setActivePath(route)}
+              >
+                {label}
+              </Link>
             ))}
-          </div>
+          </li>
           <li>
             <Link
               href="https://github.com/mattczencz"
@@ -44,6 +43,7 @@ const Navbar = () => {
               className={`nav-link`}
             >
               <FiGithub size={24} />
+              <span className="sr-only">Github</span>
             </Link>
           </li>
         </ul>

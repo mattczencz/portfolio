@@ -14,6 +14,7 @@ const About = () => {
           height={400}
           title="Welcome to Colorado sign"
           className="rounded-2xl drop-shadow-lg"
+          priority
         />
         <div className="flex flex-col justify-start gap-4">
           <h3 className="text-2xl text-theme-primary">About Me</h3>
