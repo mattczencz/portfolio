@@ -10,7 +10,15 @@ interface Props {
 
 const ProjectCard = ({
   orientation,
-  project: { name, shortDesc, image, repoLink, liveLink, technology },
+  project: {
+    name,
+    shortDesc,
+    image,
+    repoLink,
+    liveLink,
+    technology,
+    inProgress,
+  },
 }: Props) => {
   return (
     <div
@@ -28,6 +36,11 @@ const ProjectCard = ({
             priority
             className="object-cover object-top scrolling-image transition duration-[10000ms] ease-in-out relative"
           />
+        )}
+        {inProgress && (
+          <span className="absolute top-6 -right-20 bg-theme-accent text-white z-10 px-20 py-2 rotate-45 shadow-md">
+            In Progress
+          </span>
         )}
       </div>
       <div className="flex flex-col items-center w-full lg:w-1/2 gap-8">
