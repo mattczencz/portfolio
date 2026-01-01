@@ -12,7 +12,7 @@ const Hero = () => {
       <p className="text-lg lg:text-2xl text-center">
         A{' '}
         <span className="font-bold">
-          full stack engineer, passionate developer, and computer geek
+          senior full stack engineer, passionate developer, and computer geek
         </span>{' '}
         based in Colorado. <br />
         My goal is to engineer phenomenal user experiences.

@@ -22,13 +22,14 @@ const About = () => {
             A passionate engineer based in Colorado, USA
           </h3>
           <p className="text-lg mt-4">
-            Ever since I was in high school, I have had an obsession with
-            creating unique and next-generation experiences for others. As an
-            award winning frontend developer, I have made it my career&apos;s
-            mission to develop responsive, accessible, and memorable products
-            for whoever I get the pleasure to work with. I love finding areas to
-            optimize things or make a process simpler. I&apos;m a team player,
-            translator for the non-techies, and motivated worker.
+            Over the course of my career I have gained specialized experience in
+            technologies and clients ranging from monorepos and headless
+            systems, mom & pop shops and global enterprise companies. As an
+            award winning developer, I have made it my career&apos;s mission to
+            develop responsive, accessible, and memorable products for whoever I
+            get the pleasure to work with. I love finding areas to optimize
+            things or make a process simpler. I&apos;m a team player, translator
+            for the non-techies, and motivated worker.
           </p>
         </div>
       </div>
